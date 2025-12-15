@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Savons de Lolo | Savons Bio Artisanaux</title>
+    <meta name="description" content="Découvrez Les Savons de Lolo, des savons bio artisanaux fabriqués avec amour à partir d'ingrédients 100% naturels.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="soap-bubble"></div>
+            <div class="soap-bubble"></div>
+            <div class="soap-bubble"></div>
+            <p>Les Savons de Lolo</p>
+        </div>
+    </div>
+
+    <!-- Cursor personnalisé -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">Les Savons de Lolo</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Notre Histoire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">Nos Savons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#ingredients" class="nav-link">Ingrédients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link">Avis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#" class="nav-cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="floating-leaf leaf-1">🍃</div>
+                <div class="floating-leaf leaf-2">🌿</div>
+                <div class="floating-leaf leaf-3">🍂</div>
+                <div class="floating-leaf leaf-4">🌱</div>
+                <div class="floating-bubble bubble-1"></div>
+                <div class="floating-bubble bubble-2"></div>
+                <div class="floating-bubble bubble-3"></div>
+            </div>
+            
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <span class="hero-subtitle reveal-text">✨ 100% Naturel & Artisanal</span>
+                    <h1 class="hero-title">
+                        <span class="title-line reveal-text">Des savons</span>
+                        <span class="title-line reveal-text">qui prennent</span>
+                        <span class="title-line highlight reveal-text">soin de vous</span>
+                    </h1>
+                    <p class="hero-description reveal-text">
+                        Découvrez notre collection de savons bio, fabriqués à la main 
+                        avec des ingrédients naturels soigneusement sélectionnés pour 
+                        votre peau et notre planète.
+                    </p>
+                    <div class="hero-buttons reveal-text">
+                        <a href="#products" class="btn btn-primary">
+                            <span>Découvrir nos savons</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#about" class="btn btn-outline">
+                            <span>Notre histoire</span>
+                        </a>
+                    </div>
+                    <div class="hero-badges reveal-text">
+                        <div class="badge">
+                            <i class="fas fa-leaf"></i>
+                            <span>Bio</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Fait main</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-recycle"></i>
+                            <span>Zéro déchet</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-soap-card soap-1">
+                            <div class="soap-visual lavender"></div>
+                            <span>Lavande</span>
+                        </div>
+                        <div class="hero-soap-card soap-2">
+                            <div class="soap-visual mint"></div>
+                            <span>Menthe</span>
+                        </div>
+                        <div class="hero-soap-card soap-3">
+                            <div class="soap-visual honey"></div>
+                            <span>Miel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="about-image-wrapper">
+                            <div class="about-img-placeholder">
+                                <div class="workshop-illustration">
+                                    <div class="workshop-table"></div>
+                                    <div class="workshop-soap ws-1"></div>
+                                    <div class="workshop-soap ws-2"></div>
+                                    <div class="workshop-soap ws-3"></div>
+                                    <div class="workshop-plant wp-1">🌿</div>
+                                    <div class="workshop-plant wp-2">🪴</div>
+                                </div>
+                            </div>
+                            <div class="about-badge">
+                                <span class="badge-number">10+</span>
+                                <span class="badge-text">ans d'expérience</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <span class="section-subtitle">Notre Histoire</span>
+                        <h2 class="section-title">Une passion née de l'amour de la nature</h2>
+                        <p class="about-description">
+                            Tout a commencé dans ma petite cuisine, avec une envie simple : 
+                            créer des savons qui respectent notre peau et notre environnement. 
+                            Après des années de recherche et de perfectionnement, <strong>Les Savons de Lolo</strong> 
+                            est né de cette passion.
+                        </p>
+                        <p class="about-description">
+                            Chaque savon est une œuvre unique, façonnée à la main avec des huiles 
+                            végétales biologiques, des beurres précieux et des fragrances naturelles. 
+                            Nous sélectionnons minutieusement chaque ingrédient pour vous offrir 
+                            le meilleur de la nature.
+                        </p>
+                        
+                        <div class="about-features">
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Ingrédients Bio</h4>
+                                    <p>Certifiés et traçables</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Fait avec Amour</h4>
+                                    <p>Chaque savon est unique</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-paw"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Cruelty Free</h4>
+                                    <p>Non testé sur les animaux</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">🧴</div>
+                        <span class="stat-number" data-target="5000">0</span>
+                        <span class="stat-label">Savons vendus</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">😊</div>
+                        <span class="stat-number" data-target="2500">0</span>
+                        <span class="stat-label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🌿</div>
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Recettes uniques</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">⭐</div>
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">% Naturel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products section" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Nos Créations</span>
+                    <h2 class="section-title">Découvrez nos savons artisanaux</h2>
+                    <p class="section-description">
+                        Chaque savon est une invitation au voyage sensoriel, 
+                        une expérience unique pour votre peau.
+                    </p>
+                </div>
+
+                <div class="products-filter">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="relaxant">Relaxants</button>
+                    <button class="filter-btn" data-filter="energisant">Énergisants</button>
+                    <button class="filter-btn" data-filter="doux">Peaux sensibles</button>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card" data-category="relaxant">
+                        <div class="product-image">
+                            <div class="product-visual lavender-soap">
+                                <div class="soap-decoration">💜</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="product-badge bestseller">Best-seller</span>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Relaxant</span>
+                            <h3 class="product-name">Douceur de Lavande</h3>
+                            <p class="product-description">
+                                Huile essentielle de lavande bio, beurre de karité
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">8,50 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card" data-category="energisant">
+                        <div class="product-image">
+                            <div class="product-visual mint-soap">
+                                <div class="soap-decoration">🌿</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="product-badge new">Nouveau</span>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Énergisant</span>
+                            <h3 class="product-name">Fraîcheur Menthe</h3>
+                            <p class="product-description">
+                                Menthe poivrée bio, argile verte, huile d'olive
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">7,90 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card" data-category="doux">
+                        <div class="product-image">
+                            <div class="product-visual honey-soap">
+                                <div class="soap-decoration">🍯</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Peaux sensibles</span>
+                            <h3 class="product-name">Miel & Avoine</h3>
+                            <p class="product-description">
+                                Miel bio, flocons d'avoine, lait d'amande
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">9,00 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card" data-category="energisant">
+                        <div class="product-image">
+                            <div class="product-visual citrus-soap">
+                                <div class="soap-decoration">🍊</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Énergisant</span>
+                            <h3 class="product-name">Éclat d'Agrumes</h3>
+                            <p class="product-description">
+                                Orange, citron, pamplemousse bio
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">8,00 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card" data-category="relaxant">
+                        <div class="product-image">
+                            <div class="product-visual rose-soap">
+                                <div class="soap-decoration">🌹</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Relaxant</span>
+                            <h3 class="product-name">Pétale de Rose</h3>
+                            <p class="product-description">
+                                Eau de rose, argile rose, huile de jojoba
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">9,50 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card" data-category="doux">
+                        <div class="product-image">
+                            <div class="product-visual aloe-soap">
+                                <div class="soap-decoration">🌵</div>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="product-badge eco">Éco+</span>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Peaux sensibles</span>
+                            <h3 class="product-name">Aloe Vera Doux</h3>
+                            <p class="product-description">
+                                Gel d'aloe vera frais, camomille, calendula
+                            </p>
+                            <div class="product-footer">
+                                <span class="product-price">8,50 €</span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="products-cta">
+                    <a href="#" class="btn btn-primary">
+                        <span>Voir tous nos savons</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredients Section -->
+        <section class="ingredients section" id="ingredients">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">La Nature avant tout</span>
+                    <h2 class="section-title">Des ingrédients d'exception</h2>
+                    <p class="section-description">
+                        Nous sélectionnons avec soin chaque ingrédient pour vous offrir 
+                        des produits de qualité exceptionnelle.
+                    </p>
+                </div>
+
+                <div class="ingredients-showcase">
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🫒</span>
+                        </div>
+                        <h3>Huile d'Olive Bio</h3>
+                        <p>Première pression à froid, riche en antioxydants et vitamines E.</p>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🥥</span>
+                        </div>
+                        <h3>Huile de Coco</h3>
+                        <p>Nourrissante et hydratante, elle apporte douceur et onctuosité.</p>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🧈</span>
+                        </div>
+                        <h3>Beurre de Karité</h3>
+                        <p>Du Burkina Faso, pour une hydratation intense et durable.</p>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🌸</span>
+                        </div>
+                        <h3>Huiles Essentielles</h3>
+                        <p>100% pures et naturelles, pour des parfums authentiques.</p>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🪨</span>
+                        </div>
+                        <h3>Argiles Naturelles</h3>
+                        <p>Verte, blanche ou rose selon les besoins de votre peau.</p>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon">
+                            <span>🌿</span>
+                        </div>
+                        <h3>Plantes Médicinales</h3>
+                        <p>Calendula, camomille, lavande cultivées sans pesticides.</p>
+                    </div>
+                </div>
+
+                <div class="ingredients-banner">
+                    <div class="banner-content">
+                        <h3>Notre engagement qualité</h3>
+                        <p>
+                            Tous nos ingrédients sont certifiés biologiques et issus 
+                            du commerce équitable. Nous travaillons directement avec 
+                            des producteurs locaux et responsables.
+                        </p>
+                        <div class="certifications">
+                            <div class="cert-badge">
+                                <i class="fas fa-certificate"></i>
+                                <span>Bio Certifié</span>
+                            </div>
+                            <div class="cert-badge">
+                                <i class="fas fa-globe-europe"></i>
+                                <span>Commerce Équitable</span>
+                            </div>
+                            <div class="cert-badge">
+                                <i class="fas fa-recycle"></i>
+                                <span>Zéro Plastique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Notre Savoir-faire</span>
+                    <h2 class="section-title">L'art de la saponification</h2>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <div class="step-icon">🌱</div>
+                            <h3>Sélection</h3>
+                            <p>Choix minutieux des meilleurs ingrédients biologiques et locaux.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <div class="step-icon">⚗️</div>
+                            <h3>Préparation</h3>
+                            <p>Mélange précis des huiles et de la soude selon nos recettes secrètes.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <div class="step-icon">🫧</div>
+                            <h3>Saponification</h3>
+                            <p>Processus à froid pour préserver toutes les propriétés des ingrédients.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <div class="step-icon">⏳</div>
+                            <h3>Cure</h3>
+                            <p>4 à 6 semaines de séchage pour un savon parfait et doux.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <div class="step-icon">🎁</div>
+                            <h3>Emballage</h3>
+                            <p>Packaging éco-responsable, zéro plastique, 100% recyclable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Ils nous font confiance</span>
+                    <h2 class="section-title">L'avis de nos clients</h2>
+                </div>
+
+                <div class="testimonials-slider">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "J'ai enfin trouvé des savons qui respectent ma peau sensible ! 
+                                La lavande est devenue mon rituel du soir. Merci Lolo pour ces 
+                                petites merveilles ! 💜"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">M</div>
+                                <div class="author-info">
+                                    <h4>Marie L.</h4>
+                                    <span>Cliente depuis 2 ans</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Toute la famille est conquise ! Les enfants adorent le savon 
+                                au miel et ma femme ne jure plus que par la rose. Qualité 
+                                exceptionnelle !"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">P</div>
+                                <div class="author-info">
+                                    <h4>Pierre D.</h4>
+                                    <span>Client fidèle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "En tant qu'esthéticienne, je recommande Les Savons de Lolo 
+                                à toutes mes clientes. Des produits d'une qualité rare, 
+                                avec une vraie éthique. Bravo ! 🌿"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <div class="author-info">
+                                    <h4>Sophie M.</h4>
+                                    <span>Esthéticienne</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-nav">
+                    <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonials-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h2>Restez connecté(e) avec la nature</h2>
+                        <p>
+                            Inscrivez-vous à notre newsletter et recevez 10% de réduction 
+                            sur votre première commande, plus des conseils beauté naturelle !
+                        </p>
+                    </div>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit" class="btn btn-primary">
+                                <span>S'inscrire</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>J'accepte de recevoir les actualités des Savons de Lolo</span>
+                        </label>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <span class="deco-leaf">🍃</span>
+                    <span class="deco-flower">🌸</span>
+                    <span class="deco-herb">🌿</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <span class="section-subtitle">Parlons ensemble</span>
+                        <h2 class="section-title">Contactez-nous</h2>
+                        <p class="contact-description">
+                            Une question, une suggestion ou simplement envie de discuter ? 
+                            Nous sommes là pour vous !
+                        </p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Atelier</h4>
+                                    <p>12 rue des Lavandes<br>13000 Marseille, France</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>contact@lessavonsdelolo.fr</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Téléphone</h4>
+                                    <p>+33 4 91 00 00 00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-social">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Pinterest">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nom</label>
+                                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choisir un sujet</option>
+                                    <option value="question">Question sur un produit</option>
+                                    <option value="order">Suivi de commande</option>
+                                    <option value="wholesale">Vente en gros</option>
+                                    <option value="partnership">Partenariat</option>
+                                    <option value="other">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Envoyer le message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">🌿</span>
+                        <span class="logo-text">Les Savons de Lolo</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Des savons bio artisanaux, fabriqués avec amour 
+                        pour prendre soin de vous et de la planète.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Boutique</h4>
+                        <ul>
+                            <li><a href="#">Tous les savons</a></li>
+                            <li><a href="#">Coffrets cadeaux</a></li>
+                            <li><a href="#">Accessoires</a></li>
+                            <li><a href="#">Promotions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="#">Notre histoire</a></li>
+                            <li><a href="#">Nos ingrédients</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Aide</h4>
+                        <ul>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Livraison</a></li>
+                            <li><a href="#">Retours</a></li>
+                            <li><a href="#">Paiement sécurisé</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">CGV</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Cookies</a>
+                </div>
+                <p class="footer-copyright">
+                    © 2024 Les Savons de Lolo. Tous droits réservés. 
+                    Fait avec 💚 en Provence.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-decoration">
+            <div class="footer-wave"></div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <!-- Content dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
