@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="flowerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E1BEE7"/>
+      <stop offset="100%" style="stop-color:#9C27B0"/>
+    </linearGradient>
+  </defs>
+  <!-- Flacon -->
+  <path d="M32 30 L32 22 L35 18 L45 18 L48 22 L48 30 L52 35 L52 68 C52 72 48 75 40 75 C32 75 28 72 28 68 L28 35 Z" fill="#E8F5E9"/>
+  <path d="M32 30 L32 22 L35 18 L45 18 L48 22 L48 30" fill="#C8E6C9"/>
+  <!-- Liquide à l'intérieur -->
+  <path d="M30 40 L30 65 C30 70 34 73 40 73 C46 73 50 70 50 65 L50 40 Z" fill="url(#flowerGrad)" opacity="0.7"/>
+  <!-- Étiquette -->
+  <rect x="33" y="48" width="14" height="18" rx="2" fill="#fff"/>
+  <path d="M40 52 L38 56 L40 55 L42 56 Z" fill="#9C27B0"/>
+  <!-- Fleur décorative -->
+  <g transform="translate(58, 25)">
+    <circle cx="0" cy="0" r="8" fill="url(#flowerGrad)"/>
+    <circle cx="0" cy="0" r="3" fill="#FFD54F"/>
+  </g>
+  <!-- Goutte -->
+  <path d="M60 45 Q63 52 60 58 Q57 52 60 45 Z" fill="url(#flowerGrad)" opacity="0.6"/>
+</svg>

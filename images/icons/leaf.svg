@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="leafIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7BC9A6"/>
+      <stop offset="100%" style="stop-color:#4A7C59"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 8 C16 8 8 24 8 36 C8 48 20 56 32 56 C32 56 32 36 32 36 C32 36 48 44 52 32 C56 20 48 8 32 8 Z" fill="url(#leafIcon)"/>
+  <path d="M32 56 C32 56 32 28 32 28 C32 28 20 36 16 28 C12 20 20 12 32 8" stroke="#3A6247" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M32 40 C36 38 42 36 46 30" stroke="#3A6247" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M32 32 C35 30 40 28 44 24" stroke="#3A6247" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

@@ -7,7 +7,7 @@
     <meta name="description" content="Découvrez Les Savons de Lolo, des savons bio artisanaux fabriqués avec amour à partir d'ingrédients 100% naturels.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -31,8 +31,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav-logo">
-                <span class="logo-icon">🌿</span>
-                <span class="logo-text">Les Savons de Lolo</span>
+                <img src="images/logo-lolo-transparent.png" alt="Les Savons de Lolo" class="logo-img">
             </a>
             
             <div class="nav-menu" id="nav-menu">
@@ -77,10 +76,10 @@
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-bg">
-                <div class="floating-leaf leaf-1">🍃</div>
-                <div class="floating-leaf leaf-2">🌿</div>
-                <div class="floating-leaf leaf-3">🍂</div>
-                <div class="floating-leaf leaf-4">🌱</div>
+                <div class="floating-leaf leaf-1"><img src="images/icons/leaf.svg" alt="" width="40"></div>
+                <div class="floating-leaf leaf-2"><img src="images/icons/leaf.svg" alt="" width="50"></div>
+                <div class="floating-leaf leaf-3"><img src="images/icons/leaf.svg" alt="" width="35"></div>
+                <div class="floating-leaf leaf-4"><img src="images/icons/leaf.svg" alt="" width="45"></div>
                 <div class="floating-bubble bubble-1"></div>
                 <div class="floating-bubble bubble-2"></div>
                 <div class="floating-bubble bubble-3"></div>
@@ -88,7 +87,7 @@
             
             <div class="hero-container container">
                 <div class="hero-content">
-                    <span class="hero-subtitle reveal-text">✨ 100% Naturel & Artisanal</span>
+                    <span class="hero-subtitle reveal-text">100% Naturel & Artisanal</span>
                     <h1 class="hero-title">
                         <span class="title-line reveal-text">Des savons</span>
                         <span class="title-line reveal-text">qui prennent</span>
@@ -110,15 +109,15 @@
                     </div>
                     <div class="hero-badges reveal-text">
                         <div class="badge">
-                            <i class="fas fa-leaf"></i>
+                            <img src="images/icons/bio.svg" alt="Bio" width="24">
                             <span>Bio</span>
                         </div>
                         <div class="badge">
-                            <i class="fas fa-hand-holding-heart"></i>
+                            <img src="images/icons/handmade.svg" alt="Fait main" width="24">
                             <span>Fait main</span>
                         </div>
                         <div class="badge">
-                            <i class="fas fa-recycle"></i>
+                            <img src="images/icons/recycle.svg" alt="Zéro déchet" width="24">
                             <span>Zéro déchet</span>
                         </div>
                     </div>
@@ -126,18 +125,52 @@
                 
                 <div class="hero-image">
                     <div class="hero-image-wrapper">
+                        <!-- Cercle décoratif central -->
+                        <div class="hero-circle-bg"></div>
+                        
+                        <!-- Carte Lavande -->
                         <div class="hero-soap-card soap-1">
-                            <div class="soap-visual lavender"></div>
-                            <span>Lavande</span>
+                            <div class="card-glow lavender-glow"></div>
+                            <div class="soap-visual lavender">
+                                <img src="images/products/savon-lavande.svg" alt="Savon Lavande">
+                            </div>
+                            <div class="card-info">
+                                <span class="card-name">Lavande</span>
+                                <span class="card-price">8,90€</span>
+                            </div>
+                            <div class="card-badge">Best-seller</div>
                         </div>
+                        
+                        <!-- Carte Menthe -->
                         <div class="hero-soap-card soap-2">
-                            <div class="soap-visual mint"></div>
-                            <span>Menthe</span>
+                            <div class="card-glow mint-glow"></div>
+                            <div class="soap-visual mint">
+                                <img src="images/products/savon-menthe.svg" alt="Savon Menthe">
+                            </div>
+                            <div class="card-info">
+                                <span class="card-name">Menthe</span>
+                                <span class="card-price">8,90€</span>
+                            </div>
+                            <div class="card-badge new">Nouveau</div>
                         </div>
+                        
+                        <!-- Carte Miel -->
                         <div class="hero-soap-card soap-3">
-                            <div class="soap-visual honey"></div>
-                            <span>Miel</span>
+                            <div class="card-glow honey-glow"></div>
+                            <div class="soap-visual honey">
+                                <img src="images/products/savon-miel.svg" alt="Savon Miel">
+                            </div>
+                            <div class="card-info">
+                                <span class="card-name">Miel</span>
+                                <span class="card-price">9,50€</span>
+                            </div>
+                            <div class="card-badge bio">100% Bio</div>
                         </div>
+                        
+                        <!-- Petits éléments décoratifs -->
+                        <div class="floating-element elem-1"></div>
+                        <div class="floating-element elem-2"></div>
+                        <div class="floating-element elem-3"></div>
                     </div>
                 </div>
             </div>
@@ -192,7 +225,7 @@
                         <div class="about-features">
                             <div class="feature">
                                 <div class="feature-icon">
-                                    <i class="fas fa-seedling"></i>
+                                    <img src="images/icons/bio.svg" alt="Bio" width="32">
                                 </div>
                                 <div class="feature-text">
                                     <h4>Ingrédients Bio</h4>
@@ -201,7 +234,7 @@
                             </div>
                             <div class="feature">
                                 <div class="feature-icon">
-                                    <i class="fas fa-heart"></i>
+                                    <img src="images/icons/heart.svg" alt="Amour" width="32">
                                 </div>
                                 <div class="feature-text">
                                     <h4>Fait avec Amour</h4>
@@ -210,7 +243,7 @@
                             </div>
                             <div class="feature">
                                 <div class="feature-icon">
-                                    <i class="fas fa-paw"></i>
+                                    <img src="images/icons/paw.svg" alt="Cruelty Free" width="32">
                                 </div>
                                 <div class="feature-text">
                                     <h4>Cruelty Free</h4>
@@ -228,22 +261,30 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-icon">🧴</div>
+                        <div class="stat-icon">
+                            <img src="images/icons/soap-bar.svg" alt="Savons" width="48">
+                        </div>
                         <span class="stat-number" data-target="5000">0</span>
                         <span class="stat-label">Savons vendus</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon">😊</div>
+                        <div class="stat-icon">
+                            <img src="images/icons/happy-client.svg" alt="Clients" width="48">
+                        </div>
                         <span class="stat-number" data-target="2500">0</span>
                         <span class="stat-label">Clients satisfaits</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon">🌿</div>
+                        <div class="stat-icon">
+                            <img src="images/icons/recipes.svg" alt="Recettes" width="48">
+                        </div>
                         <span class="stat-number" data-target="15">0</span>
                         <span class="stat-label">Recettes uniques</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon">⭐</div>
+                        <div class="stat-icon">
+                            <img src="images/icons/star.svg" alt="Étoile" width="48">
+                        </div>
                         <span class="stat-number" data-target="100">0</span>
                         <span class="stat-label">% Naturel</span>
                     </div>
@@ -274,8 +315,8 @@
                     <!-- Product 1 -->
                     <article class="product-card" data-category="relaxant">
                         <div class="product-image">
-                            <div class="product-visual lavender-soap">
-                                <div class="soap-decoration">💜</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-lavande.svg" alt="Savon Lavande" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -302,8 +343,8 @@
                     <!-- Product 2 -->
                     <article class="product-card" data-category="energisant">
                         <div class="product-image">
-                            <div class="product-visual mint-soap">
-                                <div class="soap-decoration">🌿</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-menthe.svg" alt="Savon Menthe" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -330,8 +371,8 @@
                     <!-- Product 3 -->
                     <article class="product-card" data-category="doux">
                         <div class="product-image">
-                            <div class="product-visual honey-soap">
-                                <div class="soap-decoration">🍯</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-miel.svg" alt="Savon Miel" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -357,8 +398,8 @@
                     <!-- Product 4 -->
                     <article class="product-card" data-category="energisant">
                         <div class="product-image">
-                            <div class="product-visual citrus-soap">
-                                <div class="soap-decoration">🍊</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-agrumes.svg" alt="Savon Agrumes" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -384,8 +425,8 @@
                     <!-- Product 5 -->
                     <article class="product-card" data-category="relaxant">
                         <div class="product-image">
-                            <div class="product-visual rose-soap">
-                                <div class="soap-decoration">🌹</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-rose.svg" alt="Savon Rose" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -411,8 +452,8 @@
                     <!-- Product 6 -->
                     <article class="product-card" data-category="doux">
                         <div class="product-image">
-                            <div class="product-visual aloe-soap">
-                                <div class="soap-decoration">🌵</div>
+                            <div class="product-visual">
+                                <img src="images/products/savon-aloe.svg" alt="Savon Aloe Vera" class="product-img">
                             </div>
                             <div class="product-overlay">
                                 <button class="quick-view-btn">
@@ -461,7 +502,7 @@
                 <div class="ingredients-showcase">
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🫒</span>
+                            <img src="images/icons/olive.svg" alt="Olive" width="60">
                         </div>
                         <h3>Huile d'Olive Bio</h3>
                         <p>Première pression à froid, riche en antioxydants et vitamines E.</p>
@@ -469,7 +510,7 @@
 
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🥥</span>
+                            <img src="images/icons/coconut.svg" alt="Coco" width="60">
                         </div>
                         <h3>Huile de Coco</h3>
                         <p>Nourrissante et hydratante, elle apporte douceur et onctuosité.</p>
@@ -477,7 +518,7 @@
 
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🧈</span>
+                            <img src="images/icons/shea.svg" alt="Karité" width="60">
                         </div>
                         <h3>Beurre de Karité</h3>
                         <p>Du Burkina Faso, pour une hydratation intense et durable.</p>
@@ -485,7 +526,7 @@
 
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🌸</span>
+                            <img src="images/icons/essential-oil.svg" alt="Huiles essentielles" width="60">
                         </div>
                         <h3>Huiles Essentielles</h3>
                         <p>100% pures et naturelles, pour des parfums authentiques.</p>
@@ -493,7 +534,7 @@
 
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🪨</span>
+                            <img src="images/icons/clay.svg" alt="Argiles" width="60">
                         </div>
                         <h3>Argiles Naturelles</h3>
                         <p>Verte, blanche ou rose selon les besoins de votre peau.</p>
@@ -501,7 +542,7 @@
 
                     <div class="ingredient-card">
                         <div class="ingredient-icon">
-                            <span>🌿</span>
+                            <img src="images/icons/herbs.svg" alt="Plantes" width="60">
                         </div>
                         <h3>Plantes Médicinales</h3>
                         <p>Calendula, camomille, lavande cultivées sans pesticides.</p>
@@ -613,7 +654,7 @@
                             <p class="testimonial-text">
                                 "J'ai enfin trouvé des savons qui respectent ma peau sensible ! 
                                 La lavande est devenue mon rituel du soir. Merci Lolo pour ces 
-                                petites merveilles ! 💜"
+                                petites merveilles !"
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">M</div>
@@ -642,7 +683,7 @@
                             <div class="testimonial-author">
                                 <div class="author-avatar">P</div>
                                 <div class="author-info">
-                                    <h4>Pierre D.</h4>
+                                    <h4>TG Laurine</h4>
                                     <span>Client fidèle</span>
                                 </div>
                             </div>
@@ -661,12 +702,12 @@
                             <p class="testimonial-text">
                                 "En tant qu'esthéticienne, je recommande Les Savons de Lolo 
                                 à toutes mes clientes. Des produits d'une qualité rare, 
-                                avec une vraie éthique. Bravo ! 🌿"
+                                avec une vraie éthique. Bravo !"
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">S</div>
                                 <div class="author-info">
-                                    <h4>Sophie M.</h4>
+                                    <h4>TG Laurine</h4>
                                     <span>Esthéticienne</span>
                                 </div>
                             </div>
@@ -826,8 +867,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="footer-logo">
-                        <span class="logo-icon">🌿</span>
-                        <span class="logo-text">Les Savons de Lolo</span>
+                        <img src="images/logo-lolo-transparent.png" alt="Les Savons de Lolo" class="footer-logo-img">
                     </a>
                     <p class="footer-tagline">
                         Des savons bio artisanaux, fabriqués avec amour 

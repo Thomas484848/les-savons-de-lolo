@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="clayGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#81C784"/>
+      <stop offset="100%" style="stop-color:#4CAF50"/>
+    </linearGradient>
+    <linearGradient id="clayGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8BBD9"/>
+      <stop offset="100%" style="stop-color:#E91E63"/>
+    </linearGradient>
+    <linearGradient id="clayGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECEFF1"/>
+      <stop offset="100%" style="stop-color:#B0BEC5"/>
+    </linearGradient>
+  </defs>
+  <!-- Morceaux d'argile -->
+  <path d="M15 55 L20 35 L35 30 L45 40 L40 60 L25 65 Z" fill="url(#clayGrad1)"/>
+  <path d="M15 52 L20 35 L32 32 L38 40 L35 55 L22 58 Z" fill="#A5D6A7" opacity="0.5"/>
+  
+  <path d="M40 50 L50 30 L65 35 L70 55 L55 65 L42 58 Z" fill="url(#clayGrad2)"/>
+  <path d="M42 48 L50 32 L62 37 L66 52 L54 60 L44 55 Z" fill="#F48FB1" opacity="0.5"/>
+  
+  <path d="M25 30 L35 15 L55 18 L50 35 L30 38 Z" fill="url(#clayGrad3)"/>
+  <path d="M28 28 L36 17 L52 20 L48 33 L32 35 Z" fill="#fff" opacity="0.4"/>
+  
+  <!-- Texture -->
+  <circle cx="30" cy="45" r="2" fill="#388E3C" opacity="0.3"/>
+  <circle cx="55" cy="48" r="2" fill="#C2185B" opacity="0.3"/>
+</svg>

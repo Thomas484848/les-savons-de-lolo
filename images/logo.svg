@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B9B7A"/>
+      <stop offset="100%" style="stop-color:#4A7C59"/>
+    </linearGradient>
+  </defs>
+  <!-- Feuille stylisée -->
+  <path d="M25 45 Q15 30 25 15 Q35 5 45 15 Q40 25 45 35 Q35 45 25 45 Z" fill="url(#leafGrad)"/>
+  <path d="M25 45 Q30 30 25 15" stroke="#3A6247" stroke-width="1.5" fill="none"/>
+  <path d="M25 35 Q32 32 38 28" stroke="#3A6247" stroke-width="1" fill="none"/>
+  <path d="M25 25 Q30 23 35 20" stroke="#3A6247" stroke-width="1" fill="none"/>
+  <!-- Texte -->
+  <text x="55" y="28" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#2D3B2D">Les Savons</text>
+  <text x="55" y="46" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#4A7C59">de Lolo</text>
+</svg>
