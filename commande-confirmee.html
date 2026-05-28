@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande confirmée — L'Atelier de Lolo</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="wrap site-header__inner">
+            <a href="index.html" class="brand" aria-label="L'Atelier de Lolo, accueil"><img src="images/brand/logo-horizontal-rgba.png" alt="L'Atelier de Lolo — Savonnerie artisanale"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="boutique.html">Boutique</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html" class="cart-link">
+                    Panier <span class="cart-link__count" data-count="0">0</span>
+                </a>
+            </nav>
+            <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="confirm">
+        <div class="wrap">
+            <h1>Commande enregistrée.</h1>
+            <p id="confirmMessage">Vous recevrez un récapitulatif par email dans quelques minutes.</p>
+
+            <div class="confirm__ref" id="orderRef">—</div>
+
+            <div class="confirm__iban" id="paymentBlock" hidden>
+                <strong>Pour finaliser, effectuez le virement :</strong>
+                <p style="margin-top: 0.5rem;">Montant : <span id="amount">—</span></p>
+                <p>Référence à indiquer : <code id="refCode">—</code></p>
+                <p style="margin-top: 1rem;">
+                    IBAN : <code>FR76 XXXX XXXX XXXX XXXX XXXX XXX</code><br>
+                    BIC : <code>XXXXXXXX</code><br>
+                    Bénéficiaire : L'Atelier de Lolo
+                </p>
+                <p style="font-size: 0.8125rem; color: var(--ink-mute); margin-top: 1rem;">
+                    Coordonnées bancaires à compléter par Lolo dans <code>commande-confirmee.html</code>.
+                </p>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a class="btn btn-ghost" href="boutique.html">Retour à la boutique</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="site-footer__bottom" style="border-top: 0;">
+                <span>© 2026 L'Atelier de Lolo</span>
+                <div class="site-footer__legal">
+                    <a href="mailto:contact@lessavonsdelolo.fr">contact@lessavonsdelolo.fr</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const ref = params.get('ref');
+        const refEl = document.getElementById('orderRef');
+        const paymentBlock = document.getElementById('paymentBlock');
+
+        if (ref) {
+            refEl.textContent = 'Commande ' + ref;
+
+            try {
+                const order = JSON.parse(localStorage.getItem('savons-lolo-last-order') || 'null');
+                if (order && order.ref === ref) {
+                    if (order.payment === 'transfer') {
+                        paymentBlock.hidden = false;
+                        document.getElementById('amount').textContent = LSL.formatPrice(order.total);
+                        document.getElementById('refCode').textContent = order.ref;
+                    } else {
+                        document.getElementById('confirmMessage').textContent =
+                            'Vous recevrez un récapitulatif par email. Le paiement se fera en espèces lors du retrait.';
+                    }
+                }
+            } catch (e) {
+                // ignore
+            }
+        } else {
+            refEl.textContent = 'Aucune référence trouvée';
+        }
+    </script>
+
+</body>
+</html>

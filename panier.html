@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier — L'Atelier de Lolo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="wrap site-header__inner">
+            <a href="index.html" class="brand" aria-label="L'Atelier de Lolo, accueil"><img src="images/brand/logo-horizontal-rgba.png" alt="L'Atelier de Lolo — Savonnerie artisanale"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="boutique.html">Boutique</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html" class="cart-link is-active">
+                    Panier <span class="cart-link__count" data-count="0">0</span>
+                </a>
+            </nav>
+            <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="cart">
+        <div class="wrap">
+            <h1>Panier</h1>
+            <div id="cartContent"></div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="site-footer__top">
+                <div>
+                    <div class="site-footer__brand">L'Atelier de Lolo</div>
+                    <p class="site-footer__about">
+                        Savons fabriqués en saponification à froid. Petites fournées,
+                        ingrédients tracés, livraison France métropolitaine.
+                    </p>
+                </div>
+                <div>
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="boutique.html">Tous les savons</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Maison</h4>
+                    <ul>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <span>© 2026 L'Atelier de Lolo</span>
+                <div class="site-footer__legal">
+                    <a href="mailto:contact@lessavonsdelolo.fr">contact@lessavonsdelolo.fr</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        const SHIP = LSL.SHIPPING;
+        const root = document.getElementById('cartContent');
+
+        function render() {
+            const lines = LSL.Cart.lines();
+
+            if (!lines.length) {
+                root.innerHTML = `
+                    <div class="cart-empty">
+                        <p>Votre panier est vide pour le moment.</p>
+                        <p style="font-size:0.9rem;color:var(--ink-mute);margin-bottom:1.5rem">Bon à savoir : 3 savons = 13 €, et dès 4 savons c'est 4 € le savon.</p>
+                        <a class="btn btn-ghost arrow-right" href="boutique.html">Voir les savons</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const p = LSL.Cart.pricing();
+            const shipping = p.net >= SHIP.threshold ? 0 : SHIP.cost;
+            const total = p.net + shipping;
+            const nudge = LSL.Cart.nudge();
+
+            root.innerHTML = `
+                <div class="cart__grid">
+                    <div class="cart__list">
+                        ${lines.map(l => `
+                            <div class="cart-line">
+                                <div class="cart-line__photo">
+                                    <img src="${l.product.photo}" alt="${l.product.name}">
+                                </div>
+                                <div class="cart-line__info">
+                                    <div class="cart-line__name">${l.product.name}</div>
+                                    <div class="cart-line__meta">N° ${l.product.num} · ${l.product.weight}</div>
+                                </div>
+                                <div class="qty" data-id="${l.id}">
+                                    <button type="button" data-action="dec">−</button>
+                                    <input type="number" value="${l.qty}" min="1" max="50" data-input>
+                                    <button type="button" data-action="inc">+</button>
+                                </div>
+                                <div class="cart-line__price">${LSL.formatPrice(l.product.price * l.qty)}</div>
+                                <button class="cart-line__remove" data-remove="${l.id}">Retirer</button>
+                            </div>
+                        `).join('')}
+                        ${nudge ? `<div class="cart-nudge">${nudge}</div>` : ''}
+                    </div>
+                    <aside class="cart__summary">
+                        <h3>Récapitulatif</h3>
+                        <div class="cart__row">
+                            <span>${p.count} savon${p.count > 1 ? 's' : ''}</span>
+                            <span>${LSL.formatPrice(p.gross)}</span>
+                        </div>
+                        ${p.discount > 0 ? `
+                            <div class="cart__row cart__row--offer">
+                                <span>${p.offer}</span>
+                                <span>−${LSL.formatPrice(p.discount)}</span>
+                            </div>
+                        ` : ''}
+                        <div class="cart__row">
+                            <span>Livraison${shipping === 0 ? ' (offerte)' : ''}</span>
+                            <span>${shipping === 0 ? '0,00 €' : LSL.formatPrice(shipping)}</span>
+                        </div>
+                        ${p.net < SHIP.threshold ? `
+                            <div class="cart__row" style="font-size: 0.75rem; color: var(--ink-mute); padding-top: 0;">
+                                Livraison offerte dès ${SHIP.threshold} € — il manque ${LSL.formatPrice(SHIP.threshold - p.net)}
+                            </div>
+                        ` : ''}
+                        <div class="cart__row cart__row--total">
+                            <span>Total</span>
+                            <span>${LSL.formatPrice(total)}</span>
+                        </div>
+                        <a class="btn btn-primary btn-block arrow-right" href="checkout.html" style="margin-top: 1.5rem;">Passer commande</a>
+                        <a class="btn-link" href="boutique.html" style="display: inline-block; margin-top: 1rem;">Continuer mes achats</a>
+                    </aside>
+                </div>
+            `;
+
+            // Bind interactions
+            root.querySelectorAll('.qty').forEach(qBlock => {
+                const productId = qBlock.dataset.id;
+                const input = qBlock.querySelector('[data-input]');
+                qBlock.querySelectorAll('button').forEach(b => {
+                    b.addEventListener('click', () => {
+                        let v = parseInt(input.value, 10) || 1;
+                        v = b.dataset.action === 'inc' ? v + 1 : v - 1;
+                        LSL.Cart.setQty(productId, v);
+                        render();
+                    });
+                });
+                input.addEventListener('change', () => {
+                    const v = Math.max(0, parseInt(input.value, 10) || 0);
+                    LSL.Cart.setQty(productId, v);
+                    render();
+                });
+            });
+
+            root.querySelectorAll('[data-remove]').forEach(b => {
+                b.addEventListener('click', () => {
+                    LSL.Cart.remove(b.dataset.remove);
+                    render();
+                });
+            });
+        }
+
+        render();
+    </script>
+
+</body>
+</html>

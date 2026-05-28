@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique — L'Atelier de Lolo</title>
+    <meta name="description" content="Les savons artisanaux de L'Atelier de Lolo : Citrus, Sylva, Solis, Duna, Natura et le savon d'Alep Laurus.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="wrap site-header__inner">
+            <a href="index.html" class="brand" aria-label="L'Atelier de Lolo, accueil"><img src="images/brand/logo-horizontal-rgba.png" alt="L'Atelier de Lolo — Savonnerie artisanale"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="boutique.html" class="is-active">Boutique</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html" class="cart-link">
+                    Panier <span class="cart-link__count" data-count="0">0</span>
+                </a>
+            </nav>
+            <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="shop">
+        <div class="wrap">
+
+            <div class="shop__head">
+                <h1>Nos savons</h1>
+                <p>
+                    Toute la gamme est faite à la main, dans le même atelier.
+                    Quand un savon est en rupture, comptez 4 à 6 semaines avant la prochaine cure.
+                </p>
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter is-active" data-filter="all">Tous</button>
+                <button class="filter" data-filter="printemps">Printemps</button>
+                <button class="filter" data-filter="ete">Été</button>
+                <button class="filter" data-filter="automne">Automne</button>
+                <button class="filter" data-filter="hiver">Hiver</button>
+            </div>
+
+            <div class="products" id="shopProducts">
+                <!-- Injecté par JS -->
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="site-footer__top">
+                <div>
+                    <div class="site-footer__brand">L'Atelier de Lolo</div>
+                    <p class="site-footer__about">
+                        Savons fabriqués en saponification à froid. Petites fournées,
+                        ingrédients tracés, livraison France métropolitaine.
+                    </p>
+                </div>
+                <div>
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="boutique.html">Tous les savons</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Maison</h4>
+                    <ul>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <span>© 2026 L'Atelier de Lolo</span>
+                <div class="site-footer__legal">
+                    <a href="mailto:contact@lessavonsdelolo.fr">contact@lessavonsdelolo.fr</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        const grid = document.getElementById('shopProducts');
+        const filterBar = document.getElementById('filters');
+
+        function render(filter = 'all') {
+            const items = Object.values(LSL.products)
+                .filter(p => filter === 'all' || p.collection === filter);
+            grid.innerHTML = items.map(p => `
+                    <article class="product">
+                        <a class="product__link" href="produit.html?id=${p.id}">
+                            <div class="product__photo">
+                                <img src="${p.photo}" alt="${p.name}">
+                            </div>
+                            <div class="product__num">N° ${p.num} · ${LSL.collectionLabel(p.collection)}</div>
+                            <div class="product__name">${p.name}</div>
+                            <div class="product__meta">
+                                <span class="product__cat">${p.categoryLabel}</span>
+                                <span class="product__price">${LSL.formatPrice(p.price)}</span>
+                            </div>
+                        </a>
+                        <button class="product__add" data-add="${p.id}">Ajouter — 5 €</button>
+                    </article>
+                `).join('') || '<p style="color:var(--ink-mute)">Aucun savon dans cette collection pour le moment.</p>';
+        }
+
+        function setActive(filter) {
+            filterBar.querySelectorAll('.filter').forEach(b =>
+                b.classList.toggle('is-active', b.dataset.filter === filter));
+        }
+
+        // Ajout au panier (délégation — survit aux re-rendus de la grille)
+        grid.addEventListener('click', (e) => {
+            const btn = e.target.closest('.product__add');
+            if (!btn) return;
+            const prod = LSL.products[btn.dataset.add];
+            LSL.Cart.add(btn.dataset.add, 1);
+            LSL.toast(`${prod.name} ajouté au panier`);
+            btn.classList.add('is-added');
+            btn.textContent = 'Ajouté ✓';
+            setTimeout(() => { btn.classList.remove('is-added'); btn.textContent = 'Ajouter — 5 €'; }, 1400);
+        });
+
+        filterBar.addEventListener('click', (e) => {
+            const btn = e.target.closest('.filter');
+            if (!btn) return;
+            setActive(btn.dataset.filter);
+            render(btn.dataset.filter);
+        });
+
+        // Pré-sélection via ?collection=
+        const initial = new URLSearchParams(location.search).get('collection');
+        if (initial && LSL.collections[initial]) {
+            setActive(initial);
+            render(initial);
+        } else {
+            render();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savon — L'Atelier de Lolo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="wrap site-header__inner">
+            <a href="index.html" class="brand" aria-label="L'Atelier de Lolo, accueil"><img src="images/brand/logo-horizontal-rgba.png" alt="L'Atelier de Lolo — Savonnerie artisanale"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="boutique.html" class="is-active">Boutique</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html" class="cart-link">
+                    Panier <span class="cart-link__count" data-count="0">0</span>
+                </a>
+            </nav>
+            <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="product-detail">
+        <div class="wrap">
+            <nav class="breadcrumb" id="breadcrumb">
+                <a href="index.html">Accueil</a> / <a href="boutique.html">Boutique</a> / <span id="bcProduct">—</span>
+            </nav>
+
+            <div id="productMain" class="product-detail__grid">
+                <!-- Injecté par JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="site-footer__top">
+                <div>
+                    <div class="site-footer__brand">L'Atelier de Lolo</div>
+                    <p class="site-footer__about">
+                        Savons fabriqués en saponification à froid. Petites fournées,
+                        ingrédients tracés, livraison France métropolitaine.
+                    </p>
+                </div>
+                <div>
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="boutique.html">Tous les savons</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Maison</h4>
+                    <ul>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <span>© 2026 L'Atelier de Lolo</span>
+                <div class="site-footer__legal">
+                    <a href="mailto:contact@lessavonsdelolo.fr">contact@lessavonsdelolo.fr</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const product = LSL.products[id];
+        const container = document.getElementById('productMain');
+
+        if (!product) {
+            container.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 4rem 0;">
+                    <p style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Savon introuvable.</p>
+                    <a class="btn btn-ghost" href="boutique.html">Voir la boutique</a>
+                </div>
+            `;
+        } else {
+            document.title = `${product.name} — L'Atelier de Lolo`;
+            document.getElementById('bcProduct').textContent = product.name;
+
+            container.innerHTML = `
+                <figure class="product-detail__photo">
+                    <img src="${product.photo}" alt="${product.name}">
+                </figure>
+                <div class="product-detail__info">
+                    <p class="product-detail__num">Savon N° ${product.num} · ${product.categoryLabel}</p>
+                    <h1 class="product-detail__name">${product.name}</h1>
+                    <p class="product-detail__price">${LSL.formatPrice(product.price)}</p>
+                    <p class="product-detail__weight">${product.weight} · ${product.subtitle}</p>
+                    <p class="product-detail__desc">${product.description}</p>
+
+                    <div class="product-detail__buy">
+                        <div class="qty">
+                            <button type="button" data-action="dec" aria-label="Diminuer">−</button>
+                            <input type="number" id="qty" value="1" min="1" max="20">
+                            <button type="button" data-action="inc" aria-label="Augmenter">+</button>
+                        </div>
+                        <button class="product-detail__add" id="addBtn">Ajouter au panier</button>
+                    </div>
+
+                    <details class="spec" open>
+                        <summary>Composition</summary>
+                        <div class="spec__body">
+                            ${product.composition}
+                            <br><br><strong>Surgraissage :</strong> 9 %.
+                            <br>${product.certif}
+                            <br><br><strong>INCI :</strong> ${product.inci}
+                        </div>
+                    </details>
+                    <details class="spec">
+                        <summary>Précautions</summary>
+                        <div class="spec__body">${product.warnings}</div>
+                    </details>
+                    <details class="spec">
+                        <summary>Livraison & retrait</summary>
+                        <div class="spec__body">
+                            Retrait sur place possible sur rendez-vous (gratuit).
+                            Livraison France métropolitaine en colis suivi (4,90 €), gratuite à partir de 35 € d'achat.
+                            Préparation sous 48 h à réception du paiement.
+                        </div>
+                    </details>
+                </div>
+            `;
+
+            const qtyInput = document.getElementById('qty');
+            container.querySelectorAll('.qty button').forEach(b => {
+                b.addEventListener('click', () => {
+                    let v = parseInt(qtyInput.value, 10) || 1;
+                    v = b.dataset.action === 'inc' ? Math.min(v + 1, 20) : Math.max(v - 1, 1);
+                    qtyInput.value = v;
+                });
+            });
+
+            document.getElementById('addBtn').addEventListener('click', () => {
+                const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+                LSL.Cart.add(product.id, qty);
+                LSL.toast(`${product.name} ajouté au panier (×${qty})`);
+            });
+        }
+    </script>
+
+</body>
+</html>

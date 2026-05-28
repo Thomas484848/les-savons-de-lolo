@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande — L'Atelier de Lolo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="wrap site-header__inner">
+            <a href="index.html" class="brand" aria-label="L'Atelier de Lolo, accueil"><img src="images/brand/logo-horizontal-rgba.png" alt="L'Atelier de Lolo — Savonnerie artisanale"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="boutique.html">Boutique</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html" class="cart-link">
+                    Panier <span class="cart-link__count" data-count="0">0</span>
+                </a>
+            </nav>
+            <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="checkout">
+        <div class="wrap">
+            <h1>Finaliser la commande</h1>
+            <p class="checkout__sub">Le paiement se fait après réception du récapitulatif par email.</p>
+
+            <div id="checkoutContent"></div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="site-footer__top">
+                <div>
+                    <div class="site-footer__brand">L'Atelier de Lolo</div>
+                    <p class="site-footer__about">
+                        Savons fabriqués en saponification à froid. Petites fournées,
+                        ingrédients tracés, livraison France métropolitaine.
+                    </p>
+                </div>
+                <div>
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="boutique.html">Tous les savons</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Maison</h4>
+                    <ul>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <span>© 2026 L'Atelier de Lolo</span>
+                <div class="site-footer__legal">
+                    <a href="mailto:contact@lessavonsdelolo.fr">contact@lessavonsdelolo.fr</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        // Endpoint Formspree à remplacer par celui de Lolo (ou un autre service mail)
+        // Tant qu'il n'est pas configuré, le formulaire stocke localement et redirige.
+        const FORMSPREE_ENDPOINT = ''; // ex: 'https://formspree.io/f/xxxxxxx'
+
+        const SHIPPING_THRESHOLD = LSL.SHIPPING.threshold;
+        const SHIPPING_COST = LSL.SHIPPING.cost;
+
+        const root = document.getElementById('checkoutContent');
+        const lines = LSL.Cart.lines();
+
+        if (!lines.length) {
+            root.innerHTML = `
+                <div class="cart-empty">
+                    <p>Votre panier est vide.</p>
+                    <a class="btn btn-ghost arrow-right" href="boutique.html">Voir les savons</a>
+                </div>
+            `;
+        } else {
+            const p = LSL.Cart.pricing();
+            const subtotal = p.net;
+
+            function computeShipping(mode) {
+                if (mode === 'pickup') return 0;
+                return subtotal >= SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+            }
+
+            root.innerHTML = `
+                <form id="orderForm" class="checkout__grid" novalidate>
+                    <div>
+                        <div class="form-section">
+                            <h2>Vos coordonnées</h2>
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="firstname">Prénom</label>
+                                    <input id="firstname" name="firstname" type="text" required>
+                                </div>
+                                <div class="field">
+                                    <label for="lastname">Nom</label>
+                                    <input id="lastname" name="lastname" type="text" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" required>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Téléphone (optionnel)</label>
+                                <input id="phone" name="phone" type="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Mode de livraison</h2>
+                            <div class="choices" id="shippingChoices">
+                                <label class="choice">
+                                    <input type="radio" name="shipping" value="pickup" checked>
+                                    <span class="choice__body">
+                                        <strong>Retrait sur place — Gratuit</strong>
+                                        <small>Sur rendez-vous, dans la région. Lolo vous contactera pour fixer un créneau.</small>
+                                    </span>
+                                </label>
+                                <label class="choice">
+                                    <input type="radio" name="shipping" value="delivery">
+                                    <span class="choice__body">
+                                        <strong>Livraison à domicile — ${LSL.formatPrice(SHIPPING_COST)}${subtotal >= SHIPPING_THRESHOLD ? ' (offerte)' : ' (offerte dès ' + SHIPPING_THRESHOLD + ' €)'}</strong>
+                                        <small>Colissimo suivi, France métropolitaine. Expédié sous 48 h après réception du paiement.</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section" id="addressBlock" hidden>
+                            <h2>Adresse de livraison</h2>
+                            <div class="field">
+                                <label for="address">Adresse</label>
+                                <input id="address" name="address" type="text">
+                            </div>
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="postal">Code postal</label>
+                                    <input id="postal" name="postal" type="text" inputmode="numeric" pattern="[0-9]{5}">
+                                </div>
+                                <div class="field">
+                                    <label for="city">Ville</label>
+                                    <input id="city" name="city" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Paiement</h2>
+                            <div class="choices">
+                                <label class="choice">
+                                    <input type="radio" name="payment" value="transfer" checked>
+                                    <span class="choice__body">
+                                        <strong>Virement bancaire</strong>
+                                        <small>Vous recevrez l'IBAN par email après validation. La commande est préparée à réception du paiement.</small>
+                                    </span>
+                                </label>
+                                <label class="choice">
+                                    <input type="radio" name="payment" value="cash">
+                                    <span class="choice__body">
+                                        <strong>Espèces — au retrait uniquement</strong>
+                                        <small>Réglé sur place lors du retrait du colis.</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Une précision ?</h2>
+                            <div class="field">
+                                <label for="note">Message (optionnel)</label>
+                                <textarea id="note" name="note" rows="3" placeholder="Allergie, demande particulière, créneau de retrait souhaité..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block arrow-right" id="submitBtn">Valider la commande</button>
+                        <p style="font-size: 0.75rem; color: var(--ink-mute); margin-top: 1rem; line-height: 1.5;">
+                            En validant, vous acceptez les conditions générales de vente. Aucun débit immédiat —
+                            la commande est confirmée dès réception du paiement.
+                        </p>
+                    </div>
+
+                    <aside class="checkout__summary">
+                        <h3>Votre commande</h3>
+                        <div class="checkout__lines">
+                            ${lines.map(l => `
+                                <div class="checkout__line">
+                                    <img src="${l.product.photo}" alt="${l.product.name}">
+                                    <div>
+                                        <strong>${l.product.name}</strong>
+                                        <small>${l.product.weight} · ×${l.qty}</small>
+                                    </div>
+                                    <span>${LSL.formatPrice(l.product.price * l.qty)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="cart__row" style="margin-top: 1rem;">
+                            <span>${p.count} savon${p.count > 1 ? 's' : ''}</span>
+                            <span>${LSL.formatPrice(p.gross)}</span>
+                        </div>
+                        ${p.discount > 0 ? `
+                            <div class="cart__row cart__row--offer">
+                                <span>${p.offer}</span>
+                                <span>−${LSL.formatPrice(p.discount)}</span>
+                            </div>
+                        ` : ''}
+                        <div class="cart__row">
+                            <span>Livraison</span>
+                            <span id="shipLabel">0,00 €</span>
+                        </div>
+                        <div class="cart__row cart__row--total">
+                            <span>Total</span>
+                            <span id="totalLabel">${LSL.formatPrice(subtotal)}</span>
+                        </div>
+                    </aside>
+                </form>
+            `;
+
+            const form = document.getElementById('orderForm');
+            const addressBlock = document.getElementById('addressBlock');
+            const shipLabel = document.getElementById('shipLabel');
+            const totalLabel = document.getElementById('totalLabel');
+
+            function refreshShipping() {
+                const mode = form.querySelector('input[name="shipping"]:checked').value;
+                const ship = computeShipping(mode);
+                shipLabel.textContent = ship === 0 ? '0,00 €' : LSL.formatPrice(ship);
+                totalLabel.textContent = LSL.formatPrice(subtotal + ship);
+                addressBlock.hidden = (mode !== 'delivery');
+                ['address', 'postal', 'city'].forEach(name => {
+                    const input = form.querySelector(`[name="${name}"]`);
+                    if (input) input.required = (mode === 'delivery');
+                });
+            }
+
+            form.querySelectorAll('input[name="shipping"]').forEach(r => {
+                r.addEventListener('change', refreshShipping);
+            });
+            refreshShipping();
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+
+                const fd = new FormData(form);
+                const shipping = computeShipping(fd.get('shipping'));
+                const total = subtotal + shipping;
+                const orderRef = 'LSL-' + Date.now().toString(36).toUpperCase().slice(-6);
+
+                const orderData = {
+                    ref: orderRef,
+                    date: new Date().toISOString(),
+                    customer: {
+                        firstname: fd.get('firstname'),
+                        lastname: fd.get('lastname'),
+                        email: fd.get('email'),
+                        phone: fd.get('phone') || ''
+                    },
+                    shipping: {
+                        mode: fd.get('shipping'),
+                        address: fd.get('address') || '',
+                        postal: fd.get('postal') || '',
+                        city: fd.get('city') || '',
+                        cost: shipping
+                    },
+                    payment: fd.get('payment'),
+                    note: fd.get('note') || '',
+                    items: lines.map(l => ({
+                        id: l.id,
+                        name: l.product.name,
+                        qty: l.qty,
+                        unitPrice: l.product.price,
+                        lineTotal: l.product.price * l.qty
+                    })),
+                    gross: p.gross,
+                    offerDiscount: p.discount,
+                    offerLabel: p.offer,
+                    subtotal,
+                    total
+                };
+
+                // Tentative d'envoi par Formspree si configuré
+                if (FORMSPREE_ENDPOINT) {
+                    try {
+                        await fetch(FORMSPREE_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                            body: JSON.stringify(orderData)
+                        });
+                    } catch (err) {
+                        console.warn('Envoi Formspree échoué, commande enregistrée localement.', err);
+                    }
+                }
+
+                // On stocke la commande pour la page de confirmation
+                localStorage.setItem('savons-lolo-last-order', JSON.stringify(orderData));
+                LSL.Cart.clear();
+
+                window.location.href = `commande-confirmee.html?ref=${orderRef}`;
+            });
+        }
+    </script>
+
+</body>
+</html>
