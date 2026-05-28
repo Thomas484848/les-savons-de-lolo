@@ -63,14 +63,14 @@
             }, 0);
         },
 
-        // Offre coffret : 3 savons = 13 €, 4 savons et + = 4 € le savon
+        // Offre coffret : 3 savons = 15 €, 4 savons et + = 5 € le savon
         pricing() {
             const lines = this.lines();
             const count = lines.reduce((s, l) => s + l.qty, 0);
             const gross = lines.reduce((s, l) => s + l.product.price * l.qty, 0);
             let net = gross, offer = '';
-            if (count >= 4) { net = count * 4; offer = 'Offre coffret — 4 € le savon'; }
-            else if (count === 3) { net = 13; offer = 'Trio découverte — 13 € les 3'; }
+            if (count >= 4) { net = count * 5; offer = 'Offre coffret — 5 € le savon'; }
+            else if (count === 3) { net = 15; offer = 'Trio découverte — 15 € les 3'; }
             const discount = Math.round((gross - net) * 100) / 100;
             return { count, gross, net, discount, offer };
         },
@@ -81,9 +81,9 @@
             if (count === 0 || count >= 4) return null;
             if (count < 3) {
                 const need = 3 - count;
-                return `Ajoutez ${need} savon${need > 1 ? 's' : ''} pour le trio à 13 € (–2 €)`;
+                return `Ajoutez ${need} savon${need > 1 ? 's' : ''} pour le trio à 15 € (–3 €)`;
             }
-            return 'Ajoutez 1 savon pour le coffret de 4 à 16 € (–4 €)';
+            return 'Ajoutez 1 savon pour le coffret de 4 à 20 € (–4 €)';
         },
 
         lines() {
@@ -104,7 +104,7 @@
 
     window.LSL = window.LSL || {};
     window.LSL.Cart = Cart;
-    window.LSL.SHIPPING = { threshold: 25, cost: 4.90 };
+    window.LSL.SHIPPING = { threshold: 30, cost: 4.90 };
 
     document.addEventListener('DOMContentLoaded', () => Cart.updateBadge());
 })();
