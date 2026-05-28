@@ -7,7 +7,7 @@
         if (!document.querySelector('.announce')) {
             const bar = document.createElement('div');
             bar.className = 'announce';
-            bar.innerHTML = '<strong>Trio découverte : 3 savons à 14,99 €</strong> — soit <strong>5 €/savon</strong> <a href="boutique.html">Je compose mon trio →</a>';
+            bar.innerHTML = '<strong>Trio découverte — <strong>le 3ᵉ savon offert</strong> · 14,99 € au lieu de <s>20,97 €</s> <a href="boutique.html">Je compose mon trio →</a>';
             document.body.insertBefore(bar, document.body.firstChild);
         }
 

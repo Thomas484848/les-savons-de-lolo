@@ -63,14 +63,14 @@
             }, 0);
         },
 
-        // Offre coffret : 3 savons = 14,99 €, 4 savons et + = 4,99 € le savon
+        // Offre : 3 savons = 14,99 € (3ᵉ offert), 4 savons et + = 5,99 € le savon
         pricing() {
             const lines = this.lines();
             const count = lines.reduce((s, l) => s + l.qty, 0);
             const gross = lines.reduce((s, l) => s + l.product.price * l.qty, 0);
             let net = gross, offer = '';
-            if (count >= 4) { net = count * 4.99; offer = 'Offre coffret — 4,99 € le savon'; }
-            else if (count === 3) { net = 14.99; offer = 'Trio découverte — 14,99 € les 3'; }
+            if (count >= 4) { net = count * 5.99; offer = 'Offre coffret — 5,99 € le savon'; }
+            else if (count === 3) { net = 14.99; offer = 'Trio — le 3ᵉ savon offert'; }
             const discount = Math.round((gross - net) * 100) / 100;
             return { count, gross, net, discount, offer };
         },
@@ -81,9 +81,9 @@
             if (count === 0 || count >= 4) return null;
             if (count < 3) {
                 const need = 3 - count;
-                return `Ajoutez ${need} savon${need > 1 ? 's' : ''} pour le trio à 14,99 € (–3 €)`;
+                return `Ajoutez ${need} savon${need > 1 ? 's' : ''} pour débloquer le 3ᵉ savon OFFERT (trio à 14,99 €)`;
             }
-            return 'Ajoutez 1 savon : passez en coffret à 4,99 €/savon (–4 €)';
+            return 'Ajoutez 1 savon : passez en coffret à 5,99 €/savon (–4 €)';
         },
 
         lines() {

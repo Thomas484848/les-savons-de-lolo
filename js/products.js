@@ -1,6 +1,6 @@
 /* Catalogue produits — source de vérité partagée entre toutes les pages.
    Données issues du classeur fourni par l'atelier (noms, composition, INCI, surgras, certifications).
-   Prix : 5,99 € le savon. Offre dégressive gérée dans cart.js (3 = 14,99 €, 4+ = 4,99 €/savon).
+   Prix : 6,99 € le savon. Offre : le 3ᵉ savon offert dès 3 achetés (14,99 €). Dès 4 savons : 5,99 €/savon.
    ⚠️ Photos = placeholders à remplacer par de vraies photos des savons
    CITRUS / SYLVA / SOLIS / DUNA / NATURA / LAURUS. */
 
@@ -13,7 +13,7 @@ window.LSL.products = {
         num: '01',
         name: 'Citrus',
         subtitle: 'Litsée citronnée · surgras 9 %',
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'energisant',
         categoryLabel: 'Agrumes',
@@ -31,7 +31,7 @@ window.LSL.products = {
         num: '02',
         name: 'Sylva',
         subtitle: 'Menthe poivrée & cèdre · surgras 9 %',
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'energisant',
         categoryLabel: 'Frais & boisé',
@@ -49,7 +49,7 @@ window.LSL.products = {
         num: '03',
         name: 'Solis',
         subtitle: 'Orange douce · surgras 9 %',
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'relaxant',
         categoryLabel: 'Agrumes doux',
@@ -67,7 +67,7 @@ window.LSL.products = {
         num: '04',
         name: 'Duna',
         subtitle: 'Monoï · surgras 9 %',
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'doux',
         categoryLabel: 'Floral exotique',
@@ -85,7 +85,7 @@ window.LSL.products = {
         num: '05',
         name: 'Natura',
         subtitle: 'Sans parfum · surgras 9 %',
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'doux',
         categoryLabel: 'Neutre',
@@ -103,7 +103,7 @@ window.LSL.products = {
         num: '06',
         name: 'Laurus',
         subtitle: "Savon d'Alep · sans parfum",
-        price: 5.99,
+        price: 6.99,
         weight: '≈ 100 g',
         category: 'doux',
         categoryLabel: "Tradition d'Alep",
