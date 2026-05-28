@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -100,9 +100,9 @@
         </div>
     </footer>
 
-    <script src="js/products.js?v=8"></script>
-    <script src="js/cart.js?v=8"></script>
-    <script src="js/main.js?v=8"></script>
+    <script src="js/products.js?v=9"></script>
+    <script src="js/cart.js?v=9"></script>
+    <script src="js/main.js?v=9"></script>
     <script>
         const grid = document.getElementById('shopProducts');
         const filterBar = document.getElementById('filters');
@@ -123,7 +123,7 @@
                                 <span class="product__price">${LSL.formatPrice(p.price)}</span>
                             </div>
                         </a>
-                        <button class="product__add" data-add="${p.id}">Ajouter — 6 €</button>
+                        <button class="product__add" data-add="${p.id}">Ajouter — 5,99 €</button>
                     </article>
                 `).join('') || '<p style="color:var(--ink-mute)">Aucun savon dans cette collection pour le moment.</p>';
         }
@@ -142,7 +142,7 @@
             LSL.toast(`${prod.name} ajouté au panier`);
             btn.classList.add('is-added');
             btn.textContent = 'Ajouté ✓';
-            setTimeout(() => { btn.classList.remove('is-added'); btn.textContent = 'Ajouter — 6 €'; }, 1400);
+            setTimeout(() => { btn.classList.remove('is-added'); btn.textContent = 'Ajouter — 5,99 €'; }, 1400);
         });
 
         filterBar.addEventListener('click', (e) => {

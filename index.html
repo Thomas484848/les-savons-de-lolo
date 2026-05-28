@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -38,7 +38,7 @@
         <section class="hero">
             <div class="wrap hero__grid">
                 <div class="hero__text">
-                    <span class="hero__promo">Trio découverte — 15 € les 3 savons</span>
+                    <span class="hero__promo">Trio découverte — 14,99 € les 3 savons</span>
                     <h1 class="hero__title">Des savons<br>fabriqués <em>à froid</em>,<br>en petites fournées.</h1>
                     <p class="hero__sub">
                         Six savons, saponifiés à froid et surgras à 9 %. Pas d'huile de palme,
@@ -52,10 +52,10 @@
                 </div>
                 <figure class="hero__visual">
                     <img class="hero__photo" src="images/produits/agrumes.jpg" alt="Savon artisanal, packaging bandeau crème">
-                    <a class="hero__sticker" href="boutique.html" aria-label="Trio découverte 15 € — composer mon trio">
+                    <a class="hero__sticker" href="boutique.html" aria-label="Trio découverte 14,99 € — composer mon trio">
                         <span class="hero__sticker-strip">Trio découverte</span>
-                        <span class="hero__sticker-price">15 €</span>
-                        <span class="hero__sticker-sub">les 3 savons<br><s>au lieu de 18 €</s></span>
+                        <span class="hero__sticker-price">14,99 €</span>
+                        <span class="hero__sticker-sub">les 3 savons<br>soit 5 €/savon</span>
                     </a>
                     <figcaption class="hero__caption">
                         <span>Citrus · Litsée citronnée</span>
@@ -70,12 +70,12 @@
                 <div>
                     <span class="eyebrow">L'offre</span>
                     <h2>Plus on en prend,<br>moins c'est cher.</h2>
-                    <p>Chaque savon est à 5 €. Composez votre sélection, la remise s'applique toute seule au panier.</p>
+                    <p>Chaque savon est à 5,99 €. Composez votre sélection, la remise s'applique toute seule au panier.</p>
                 </div>
                 <ul class="offer__tiers">
-                    <li><strong>Le trio</strong><span>15 €</span><small>3 savons · au lieu de 18 €</small></li>
-                    <li><strong>Le coffret</strong><span>5 € / savon</span><small>dès 4 savons · 20 € les 4</small></li>
-                    <li><strong>Livraison</strong><span>Offerte</span><small>dès 30 € d'achat</small></li>
+                    <li><strong>Le trio</strong><span>14,99 €</span><small>3 savons · soit 5 €/savon</small></li>
+                    <li><strong>Le coffret</strong><span>4,99 €/savon</span><small>dès 4 savons · économisez 1 € par savon</small></li>
+                    <li><strong>Livraison</strong><span>Offerte</span><small>dès 25 € d'achat</small></li>
                 </ul>
                 <a href="boutique.html" class="btn btn-primary arrow-right">Composer mon coffret</a>
             </div>
@@ -194,9 +194,9 @@
         </div>
     </footer>
 
-    <script src="js/products.js?v=8"></script>
-    <script src="js/cart.js?v=8"></script>
-    <script src="js/main.js?v=8"></script>
+    <script src="js/products.js?v=9"></script>
+    <script src="js/cart.js?v=9"></script>
+    <script src="js/main.js?v=9"></script>
     <script>
         // Afficher les six savons sur l'accueil
         const container = document.getElementById('homeProducts');
@@ -214,7 +214,7 @@
                                 <span class="product__price">${LSL.formatPrice(p.price)}</span>
                             </div>
                         </a>
-                        <button class="product__add" data-add="${p.id}">Ajouter — 6 €</button>
+                        <button class="product__add" data-add="${p.id}">Ajouter — 5,99 €</button>
                     </article>
                 `).join('');
 
@@ -226,7 +226,7 @@
                 LSL.toast(`${prod.name} ajouté au panier`);
                 btn.classList.add('is-added');
                 btn.textContent = 'Ajouté ✓';
-                setTimeout(() => { btn.classList.remove('is-added'); btn.textContent = 'Ajouter — 6 €'; }, 1400);
+                setTimeout(() => { btn.classList.remove('is-added'); btn.textContent = 'Ajouter — 5,99 €'; }, 1400);
             });
         }
     </script>
