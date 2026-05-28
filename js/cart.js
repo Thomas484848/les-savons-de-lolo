@@ -63,27 +63,28 @@
             }, 0);
         },
 
-        // Offre : 3 savons = 14,99 € (3ᵉ offert), 4 savons et + = 5,99 € le savon
+        // Règle unique : tous les 3 savons achetés, le 3ᵉ est offert (B2G1 répété)
         pricing() {
             const lines = this.lines();
             const count = lines.reduce((s, l) => s + l.qty, 0);
             const gross = lines.reduce((s, l) => s + l.product.price * l.qty, 0);
-            let net = gross, offer = '';
-            if (count >= 4) { net = count * 5.99; offer = 'Offre coffret — 5,99 € le savon'; }
-            else if (count === 3) { net = 14.99; offer = 'Trio — le 3ᵉ savon offert'; }
+            const freebies = Math.floor(count / 3);
+            const net = Math.round((count - freebies) * 5.99 * 100) / 100;
             const discount = Math.round((gross - net) * 100) / 100;
-            return { count, gross, net, discount, offer };
+            let offer = '';
+            if (freebies === 1) offer = 'Le 3ᵉ savon offert';
+            else if (freebies > 1) offer = `${freebies} savons offerts`;
+            return { count, gross, net, discount, offer, freebies };
         },
 
-        // Message d'incitation à compléter le panier
+        // Relance vers le prochain palier (multiple de 3)
         nudge() {
             const count = this.count();
-            if (count === 0 || count >= 4) return null;
-            if (count < 3) {
-                const need = 3 - count;
-                return `Ajoutez ${need} savon${need > 1 ? 's' : ''} pour débloquer le 3ᵉ savon OFFERT (trio à 14,99 €)`;
-            }
-            return 'Ajoutez 1 savon : passez en coffret à 5,99 €/savon (–4 €)';
+            if (count === 0) return null;
+            const togo = 3 - (count % 3);
+            if (togo === 3) return null;
+            if (count < 3) return `Ajoutez ${togo} savon${togo > 1 ? 's' : ''} — <strong>le 3ᵉ est OFFERT</strong>`;
+            return `Ajoutez ${togo} savon${togo > 1 ? 's' : ''} pour <strong>1 savon offert de plus</strong>`;
         },
 
         lines() {
