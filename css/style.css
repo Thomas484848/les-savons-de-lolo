@@ -557,8 +557,72 @@ ul, ol { list-style: none; }
 .hero__sticker-sub s { opacity: 0.6; }
 
 @media (max-width: 560px) {
-    .hero__sticker { width: 120px; height: 120px; top: -10px; right: -10px; }
-    .hero__sticker-price { font-size: 32px; }
+    .hero__sticker { width: 104px; height: 104px; top: 8px; right: 8px; }
+    .hero__sticker-price { font-size: 28px; }
+    .hero__sticker-strip, .hero__sticker-sub { font-size: 10px; }
+}
+
+/* ============================================================
+   MOBILE / iOS (iPhone Safari) — derniers ajustements
+   ============================================================ */
+
+/* Pas de halo gris au tap */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Évite tout débordement horizontal (sticker, ombres, transforms) */
+html, body { overflow-x: hidden; }
+
+/* Safari n'autozoome plus au focus quand l'input fait >= 16px */
+.field input,
+.field textarea,
+.field select,
+.contact-form input,
+.contact-form textarea,
+.contact-form select,
+.qty input {
+    font-size: 16px;
+}
+
+/* Encoche iPhone : on respecte les safe-areas */
+.announce {
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+}
+.site-footer {
+    padding-bottom: max(var(--s-32), env(safe-area-inset-bottom));
+}
+
+/* Tap-targets confortables (>= 44 px) sur mobile */
+@media (max-width: 720px) {
+    .filter {
+        padding: 12px 6px;
+        font-size: var(--fs-14);
+    }
+    .product__add {
+        padding: 14px;
+        font-size: var(--fs-14);
+        min-height: 44px;
+    }
+    .cart-line__remove {
+        padding: 12px 0;
+        font-size: var(--fs-13);
+    }
+    .nav-burger {
+        width: 44px;
+        height: 44px;
+        padding: 8px;
+    }
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+    .hero__title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .hero { padding: var(--s-48) 0 var(--s-24); }
+    .section-head__title { font-size: var(--fs-32); }
+    .shop__head h1 { font-size: var(--fs-44); }
+    .cart h1 { font-size: var(--fs-44); }
 }
 .hero__caption {
     margin-top: var(--s-16);
