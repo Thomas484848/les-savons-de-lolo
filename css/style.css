@@ -4,19 +4,21 @@
    ============================================================ */
 
 :root {
-    /* Palette — tons crème + accent vert mousse profond */
-    --bg: #FAF8F3;
-    --bg-alt: #F1EDE3;
+    /* Palette — crème chaud + terracotta (logo) & abricot des pétales */
+    --bg: #FBF7F1;
+    --bg-alt: #F4EBDD;
     --bg-card: #FFFFFF;
-    --border: #E5E0D3;
-    --border-strong: #1A1A1A;
+    --border: #E9DDCB;
+    --border-strong: #241413;
 
-    --ink: #1A1A1A;
-    --ink-soft: #4A4A45;
-    --ink-mute: #8A857A;
+    --ink: #241413;
+    --ink-soft: #5C4A40;
+    --ink-mute: #9A8A7B;
 
-    --accent: #4A5D3A;
-    --accent-soft: #6B7E5B;
+    --accent: #C0603C;        /* terracotta — le « Lolo » du logo */
+    --accent-soft: #D5895F;   /* terracotta clair */
+    --accent-deep: #A24B2C;   /* terracotta foncé (hover appuyé) */
+    --accent-2: #F0B46C;      /* abricot — les pétales de la fleur */
 
     --danger: #A8442B;
 
@@ -200,12 +202,12 @@ ul, ol { list-style: none; }
     margin-top: 2px;
 }
 .brand img {
-    height: 54px;
+    height: 62px;
     width: auto;
     display: block;
 }
 @media (max-width: 560px) {
-    .brand img { height: 42px; }
+    .brand img { height: 46px; }
 }
 .main-nav {
     display: flex;
@@ -520,8 +522,8 @@ ul, ol { list-style: none; }
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: var(--accent);
-    color: #FAF8F3;
+    background: var(--accent-2);
+    color: var(--ink);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -529,7 +531,7 @@ ul, ol { list-style: none; }
     text-align: center;
     padding: 12px;
     transform: rotate(-7deg);
-    box-shadow: 0 10px 28px rgba(74,93,58,0.28);
+    box-shadow: 0 10px 28px rgba(192,96,60,0.30);
     z-index: 4;
     transition: transform 0.3s ease;
 }
